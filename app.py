@@ -81,7 +81,7 @@ if user_query:
 
     with st.chat_message("assistant"):
         streamlit_callback=StreamlitCallbackHandler(st.container())
-        response=agent.run(user_query,callbacks=[streamlit_callback])
+        response = agent.run(input=user_query, callbacks=[streamlit_callback], handle_parsing_errors=True)
         st.session_state.messages.append({"role":"assistant","content":response})
         st.write(response)
 
